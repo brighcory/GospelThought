@@ -13,7 +13,7 @@ import android.support.v4.app.NotificationManagerCompat;
 
 public class GospelThoughtServices extends IntentService{
 
-    private static final int NOTIFICATION_ID = 3;
+    private static final int NOTIFICATION_ID = 5643;
 
     public GospelThoughtServices() {
         super("GospelThoughtIntentService");
@@ -26,7 +26,7 @@ public class GospelThoughtServices extends IntentService{
         //Todo get inspiring quotes
         builder.setContentText("Here will be the thought");
         //Todo Make an icon for the App
-//        builder.setLargeIcon(R.d)
+        builder.setSmallIcon(android.R.drawable.ic_input_add);
         Intent notifyIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivities(this, 2,
                 new Intent[]{notifyIntent},
