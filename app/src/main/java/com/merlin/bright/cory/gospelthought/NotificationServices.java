@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 
 /**
  * Created by coryb on 1/21/2018.
+ *
  */
 
 public class NotificationServices extends Service {

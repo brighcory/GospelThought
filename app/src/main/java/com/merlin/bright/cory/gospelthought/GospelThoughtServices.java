@@ -9,6 +9,8 @@ import android.support.v4.app.NotificationManagerCompat;
 
 /**
  * Created by cory on 1/28/18.
+ *
+ *
  */
 
 public class GospelThoughtServices extends IntentService{

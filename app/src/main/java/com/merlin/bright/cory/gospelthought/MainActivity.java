@@ -15,15 +15,23 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int NOTIFICATION_REMINDER_NIGHT = 11;
     private Context context = this;
-    private ImageView mImageView;
-    private TextView mTextView;
+    public static String[] quote = {
+            "God cares a lot more about who we are, and who we are becoming, than about who we once were.—Elder Dale G. Renlund",
+            "[Easter] is the day that changed everything.—President Dieter F. Uchtdorf",
+            "Families are the Lord’s workshop on earth to help us learn and live the gospel.—Sister Cheryl A. Esplin",
+            "We are on His errand. Let us learn of Him. Let us follow in His footsteps. Let us live by His precepts.—President Thomas S. Monson",
+            "All of us need the Savior’s Atonement to heal us. All of us are lost and need to be found.—Elder Brent H. Nielson",
+            "The power to speak and act in God’s name requires revelation.—President Henry B. Eyring",
+            "No other work transcends that of righteous, intentional parenting!—President Russell M. Nelson",
+            "How we live our religion is far more important than what we may say about our religion.—Elder Robert D. Hales"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mImageView = findViewById(R.id.imageView);
-        mTextView = findViewById(R.id.textView);
+        ImageView mImageView = findViewById(R.id.imageView);
+        TextView mTextView = findViewById(R.id.textView);
 
         int[] imageResources = {R.drawable.christ_healing_the_blind_man_39555_mobile,
                 R.drawable.christ_rich_young_ruler_hofmann_1020802_mobile,
@@ -40,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         Random r = new Random();
         int index = r.nextInt(imageResources.length);
         mImageView.setImageResource(imageResources[index]);
+
+        mTextView.setText(getQuote());
+
         Intent notifyIntent = new Intent(this, GospelThoughtReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast
                 (context, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -48,5 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 System.currentTimeMillis() + 5 * 1000,
                 1000 * 60 * 60 * 24,
                 pendingIntent);
+    }
+
+    public static String getQuote() {
+        Random r = new Random();
+        int quoteIndex = r.nextInt(quote.length);
+        return quote[quoteIndex];
     }
 }

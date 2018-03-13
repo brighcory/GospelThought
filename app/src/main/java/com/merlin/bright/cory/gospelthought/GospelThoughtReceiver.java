@@ -6,6 +6,7 @@ import android.content.Intent;
 
 /**
  * Created by cory on 1/28/18.
+ *
  */
 
 public class GospelThoughtReceiver extends BroadcastReceiver {
