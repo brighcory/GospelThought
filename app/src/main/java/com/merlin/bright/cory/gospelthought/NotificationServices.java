@@ -15,7 +15,7 @@ public class NotificationServices extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         CharSequence name = getString(R.string.app_name);
-        String description = getString(R.string.defaultText);
+        String description = MainActivity.getQuote();
 
         Notification.Builder mBuilder =
                 new Notification.Builder(this)
